@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+		<style>html, body, h1, h2, h3, h4, h5 {font-family: "Raleway", sans-serif}</style>
+
+		<title>
+			weatherly
+		</title>
+
+	</head>
+
+	<body>
+
+		<div id="main" class="w3-main w3-display-container">
+			<! -- Flash messages -->
+			<div class="w3-container w3-animate-opacity">
+				{% for message in get_flashed_messages() %}
+					<div class="w3-panel
+											w3-pale-green
+											w3-leftbar
+											w3-border-green
+											w3-animate-right
+											w3-display-content">
+						{{ message }}
+					</div>
+				{% endfor %}
+			</div>
+
+			{% block content %}{% endblock %}
+		</div>
+
+    {% block scripts %}{% endblock %}
+
+    </body>
+</html>
