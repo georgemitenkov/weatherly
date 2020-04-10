@@ -4,7 +4,8 @@ class Metric:
 
 class WeatherData:
 
-    def __init__(self, location, temperature, wind):
+    def __init__(self,status, location, temperature, wind):
+        self.status = status
         self.location = location
         self.temperature = temperature
         self.wind = wind

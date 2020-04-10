@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="w3-content w3-center">
+  <div class="w3-margin">
+    <div class="w3-container">
+        <h1>
+            Something when wrong!
+        </h1>
+        <br>
+        <p>
+            {{ error }}
+        </p>
+    </div>
+
+    <footer class="w3-container">
+       <a href="{{ url_for("index") }}">Go back </a>
+    </footer>
+
+  </div>
+</div>
+{% endblock content %}

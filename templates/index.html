@@ -2,14 +2,115 @@
 
 {% block content %}
 <div class="w3-content w3-center">
-  <div class="w3-margin">
-    <h1>WEATHERLY</h1>
-    <p>
-    A new service to help you stay warm on a rainy day
-    </p>
-    <p>
-    Click <a href="{{ url_for("weather") }}">here</a> to find out the weather in London
-    </p>
-  </div>
+    <style>
+        #cloud_slow {
+			  width: 100px;
+			  height: 70px;
+			  background: transparent;
+			  position: relative;
+			  animation: cloud_slow 60s infinite;
+			  animation-timing-function: linear;
+		}
+
+		@keyframes cloud_slow {
+			  0% {left:500px;}
+			  50% {left:-500px;}
+			  100% {left:500px;}
+		}
+    </style>
+    <br>
+    <img id="cloud_slow" src="../static/images/cloud.png">
+    <br>
+    <br>
+</div>
+<div class="w3-content w3-center">
+    <div class="w3-margin">
+        <div id="search-panel" style="display:none">
+                <form id="search-form" action="{{ url_for('weather') }}" method="POST" autocomplete="off" class="w3-container w3-card w3-padding w3-margin">
+                    <h3>Where are you today?</h3>
+                    <hr>
+                    <p>
+                        <input class="w3-input" name="location" type="text" placeholder="Select your location">
+                    </p>
+                    <div class="w3-bar w3-margin w3-padding">
+                        <button
+                                form="search-form"
+                                type="submit"
+                                class="w3-right w3-button w3-large
+                            w3-white w3-border w3-text-indigo
+                            w3-hover-indigo w3-round w3-margin">
+                            Search
+                        </button>
+                        <button
+                                id="cancel-search"
+                                type="button"
+                                class="w3-right w3-button w3-large
+                            w3-white w3-border w3-text-red
+                            w3-hover-red w3-round w3-margin">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+        </div>
+
+        <div id="home" class="w3-container w3-padding w3-margin">
+            <h1>WEATHERLY</h1>
+            <p>
+                A new service to help you stay warm on a rainy day
+            </p>
+            <button
+                    id="open-search"
+                    class="w3-center w3-button w3-large
+                w3-white w3-border w3-text-indigo
+                w3-hover-indigo w3-round w3-margin">
+                Check the forecast?
+            </button>
+        </div>
+    </div>
+</div>
+<div class="w3-content w3-center">
+    <style>
+        #cloud_left {
+			  width: 200px;
+			  height: 150px;
+			  background: transparent;
+			  position: relative;
+			  animation: cloud_left 40s infinite;
+			}
+
+			#cloud_right {
+			  width: 250px;
+			  height: 180px;
+			  background: transparent;
+			  position: relative;
+			  animation: cloud_right 30s infinite;
+			  animation-timing-function: linear;
+			}
+
+			@keyframes cloud_left {
+			  0% {left:-500px;}
+			  50% {left:500px;}
+			  100% {left:-500px;}
+			}
+
+			@keyframes cloud_right {
+			  0% {left:500px;}
+			  50% {left:-500px;}
+			  100% {left:500px;}
+			}
+    </style>
+    <img id="cloud_left" src="../static/images/cloud.png">
+    <br>
+    <br>
+    <br>
+    <img id="cloud_right" src="../static/images/cloud.png" width="1" height="1">
 </div>
 {% endblock content %}
+
+{% block scripts %}
+    <script
+            charset="utf-8"
+            type="text/javascript"
+            src="{{ url_for('static', filename='js/search.js') }}">
+    </script>
+{% endblock scripts %}
