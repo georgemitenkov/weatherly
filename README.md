@@ -23,14 +23,14 @@ that it is easier to interact with the application.
 ## How it works
 ### Workflow
 The workflow of the application is simple. 
--> User enters a location at which s/he wants to find out the current weather conditions.
--> Location is interpreted via pyowm to return an Observation object
--> Observation object is parsed to extract useful data via Parser class
--> Predictor class makes suggestions based on the weather data.
--> Weather information and suggestions are passed to the rendered page.
+1. User enters a location at which s/he wants to find out the current weather conditions.
+2. Location is interpreted via `pyowm` to return an Observation object
+3. Observation object is parsed to extract useful data via `Parser` class
+4. `Predictor` class makes suggestions based on the weather data.
+5. Weather information and suggestions are passed to the rendered page.
 
 ### Prediction algorithm
-Predict class uses a simple suggestion algorithm. In database, it searches clothes and accessoires that
+`Predict` class uses a simple suggestion algorithm. In database, it searches clothes and accessoires that
 mach the current temperature and are suitable for current weather conditions(i.e. rain, snow, etc.)
 
 ## Prerquisites
@@ -60,7 +60,7 @@ To insert your own piece of clothes in the database, run
 ```bash
 flask insert -- NAME MIN_TEMP MAX_TEMP WHEN_RAIN WHEN_SNOW WHEN_WIND IS_ACCESSOIRE
 ```
-Note that -- option is important for parsing negative numbers. See more info by running
+Note that `--` option is important for parsing negative numbers. See more info by running
 ```bash
 flask insert --help
 ```
@@ -68,4 +68,4 @@ Finally, run
 ```bash
 flask run        # Run the server
 ```
-Then browse to <http://localhost:5000>.
+Then browse to `<http://localhost:5000>`.
