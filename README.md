@@ -69,3 +69,6 @@ Finally, run
 flask run        # Run the server
 ```
 Then browse to `<http://localhost:5000>`.
+
+## Example
+[Here](https://youtu.be/RtpOirGGQPU) is the video example
