@@ -39,7 +39,7 @@ Make sure you have Python 3 installed on your machine
 ## Running the app
 First, clone the repository to your machine. To use the service you will
 need to get an API key from [OpenWeatherMap](https://openweathermap.org/current),
-and place it in app.py instead of API_KEY.
+and place it in `app.py` instead of `API_KEY`.
 ```Python
 owm = pyowm.OWM(API_KEY)
 ```
