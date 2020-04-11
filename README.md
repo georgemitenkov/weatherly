@@ -1,6 +1,6 @@
 # Weatherly
 
-Weatherly is a smart weather forecasst web application.
+Weatherly is a smart weather forecast web application.
 It allows user to find out the current weather conditions at specified location,
 and suggests what to wear to feel comfortable outside. At the moment the available weather features are:
 - Overall weather discription (e.g. Rain, Clear sky, etc.)
