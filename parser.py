@@ -1,4 +1,4 @@
-from weather_data import Location, Temperature, Wind, WeatherData
+from .weather_data import Location, Temperature, Wind, WeatherData
 
 
 class Parser:

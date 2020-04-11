@@ -1,5 +1,5 @@
 from random import choice
-from models.clothes import Clothes
+from .models.clothes import Clothes
 
 
 class Suggestion:

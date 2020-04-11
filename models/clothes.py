@@ -1,4 +1,4 @@
-from database import database as db
+from ..database import database as db
 
 
 class Clothes(db.Model):
