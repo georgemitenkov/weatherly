@@ -1,22 +1,47 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<br>
 <div class="w3-content w3-center">
   <div class="w3-margin">
     <div class="w3-container">
         <h1>
-            Weather at {{ weather_data.location.name }}:
+            Current weather in {{ weather_data.location.name }}
         </h1>
-        <div class="w3-panel w3-card">
+
+        <div class="w3-panel">
             <p>
                 Description: {{ weather_data.status }}
             </p>
-            <p>
-                Current average temperature in {{ weather_data.location.name }} is
-                {{ weather_data.temperature.current }} {{ weather_data.temperature.unit }},
-                with a minimum of {{ weather_data.temperature.min }} {{ weather_data.temperature.unit }} and
-                a maximum of {{ weather_data.temperature.max }} {{ weather_data.temperature.unit }} somewhere.
-            </p>
+
+            <div class="w3-row">
+                  <div class="w3-col s4 w3-center">
+                    <div class="w3-margin">
+                          <div class="w3-card">
+                              <p> Minimum current temperature at {{ weather_data.location.name }} </p>
+                              <p> {{ weather_data.temperature.min }} {{ weather_data.temperature.unit }} </p>
+                          </div>
+                    </div>
+                  </div>
+
+                  <div class="w3-col s4 w3-center">
+                      <div class="w3-margin">
+                          <div class="w3-card">
+                              <p> Current average temperature in {{ weather_data.location.name }} </p>
+                              <p> {{ weather_data.temperature.current }} {{ weather_data.temperature.unit }} </p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="w3-col s4 w3-center">
+                    <div class="w3-margin">
+                          <div class="w3-card">
+                              <p> Maximum current temperature at {{ weather_data.location.name }} </p>
+                              <p> {{ weather_data.temperature.max }} {{ weather_data.temperature.unit }} </p>
+                          </div>
+                    </div>
+                  </div>
+            </div>
             <p>
                 Wind: {{ weather_data.wind.speed }} m/s
             </p>
@@ -27,18 +52,13 @@
         <h1>
             Wondering what to wear?
         </h1>
-        <p>
-            Here are some suggestions :)
-        </p>
-        <div class="w3-panel w3-card">
+        <div class="w3-panel w3-card w3-left">
             <p>
-                {{ suggestion.clothes }}
-            </p>
-            <p>
-                {{ suggestion.accessoire }}
+                {{ suggestion.suggestion }}
             </p>
         </div>
     </div>
+      <br><br>
     <footer class="w3-container">
        <a href="{{ url_for("index") }}">Go back </a>
     </footer>

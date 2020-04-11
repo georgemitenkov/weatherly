@@ -16,6 +16,29 @@ def drop_all():
     database.drop_all()
 
 
+@click.command("insert", help="Insert a piece of clothes in your database")
+@click.argument("name", type=click.STRING)
+@click.argument("min_temp", type=click.INT)
+@click.argument("max_temp", type=click.INT)
+@click.argument("when_rain", type=click.BOOL)
+@click.argument("when_snow", type=click.BOOL)
+@click.argument("when_wind", type=click.BOOL)
+@click.argument("is_accessoire", type=click.BOOL)
+@with_appcontext
+def insert(name, min_temp, max_temp, when_rain, when_snow, when_wind ,is_accessoire):
+    item = Clothes(
+        name=name,
+        min_temp=min_temp,
+        max_temp=max_temp,
+        when_rain=when_rain,
+        when_snow=when_snow,
+        when_wind=when_wind,
+        is_accessoire=is_accessoire
+    )
+    database.session.add(item)
+    database.session.commit()
+
+
 @click.command("populate", help="Populate the database with initial data")
 @with_appcontext
 def populate():

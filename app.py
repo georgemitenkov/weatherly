@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-from .parser import Parser
-from .predictor import Predictor
+from .utils.parser import Parser
+from .utils.predictor import Predictor
 from .config import API_KEY
 from .database import database
 import pyowm
@@ -12,11 +12,12 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 database.init_app(app)
 
-from .cli import create_all, drop_all, populate
+from .cli import create_all, insert, drop_all, populate
 
 with app.app_context():
     app.cli.add_command(create_all)
     app.cli.add_command(drop_all)
+    app.cli.add_command(insert)
     app.cli.add_command(populate)
 
 
