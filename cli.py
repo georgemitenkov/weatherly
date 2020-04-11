@@ -16,14 +16,15 @@ def drop_all():
     database.drop_all()
 
 
-@click.command("insert", help="Insert a piece of clothes in your database")
-@click.argument("name", type=click.STRING)
-@click.argument("min_temp", type=click.INT)
-@click.argument("max_temp", type=click.INT)
-@click.argument("when_rain", type=click.BOOL)
-@click.argument("when_snow", type=click.BOOL)
-@click.argument("when_wind", type=click.BOOL)
-@click.argument("is_accessoire", type=click.BOOL)
+@click.command("insert", help="Insert a piece of clothes in your database. "
+                              "Add -- as option when passing negative arguments.")
+@click.argument("name", type=click.STRING, help="Name of the clothes")
+@click.argument("min_temp", type=click.INT, help="Minimum temperature at which you can wear it")
+@click.argument("max_temp", type=click.INT, help="Maximum temperature at which you can wear it")
+@click.argument("when_rain", type=click.BOOL, help="True if suitable for rainy weather")
+@click.argument("when_snow", type=click.BOOL, help="True if suitable when it snows")
+@click.argument("when_wind", type=click.BOOL, help="True if suitable for windy weather")
+@click.argument("is_accessoire", type=click.BOOL, help="True if an accessoire, e.g. an umbrella")
 @with_appcontext
 def insert(name, min_temp, max_temp, when_rain, when_snow, when_wind ,is_accessoire):
     item = Clothes(
